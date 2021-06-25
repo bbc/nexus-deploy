@@ -1,0 +1,16 @@
+[Unit]
+Description=nexus service
+After=network.target
+
+[Service]
+Type=simple
+LimitNOFILE=65536
+ExecStart=/opt/nexus/bin/nexus run
+ExecStop=/opt/nexus/bin/nexus stop
+User=nexus
+Group=nexus
+DynamicUser=yes
+TimeoutSec=600
+
+[Install]
+WantedBy=multi-user.target
