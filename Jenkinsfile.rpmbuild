@@ -1,0 +1,7 @@
+@Library('cd-pipelines') _
+rpmPipeline {
+    repository = 'nexus-el8'
+    commands = [
+        'cp /target/*.rpm ./'
+    ]
+}
