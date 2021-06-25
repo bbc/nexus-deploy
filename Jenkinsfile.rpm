@@ -1,6 +1,6 @@
 @Library('cd-pipelines') _
 rpmPipeline {
-    repository = 'cosmic-el8'
+    repository = 'nexus-el8'
     commands = [
         'cp /target/*.rpm ./'
     ]
