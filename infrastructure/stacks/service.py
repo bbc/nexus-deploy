@@ -10,7 +10,7 @@ from troposphere.elasticloadbalancingv2 import Listener, TargetGroup, Action
 
 def template(project_name, component_name):
     """
-    Makes a Troposphere template for main service stack on which the Grafana
+    Makes a Troposphere template for main service stack on which the Nexus
     service will run.
     """
 
@@ -24,12 +24,12 @@ def template(project_name, component_name):
 
     auto_scaling_group = template.resources["ComponentAutoScalingGroup"]
     auto_scaling_group.AvailabilityZones = ["eu-west-1c"]
-    auto_scaling_group.VPCZoneIdentifier = [CoreImports.private_subnets()[1]]
+    auto_scaling_group.VPCZoneIdentifier = [CoreImports.private_subnets()[2]]
 
     efs_file_system = FileSystem(
         title="NexusFileSystem",
         FileSystemTags=Tags(
-            Name=Join("", [Ref("Environment"), "GrafanaFileSystem"])
+            Name=Join("", [Ref("Environment"), "NexusFileSystem"])
         ),
     )
     template.add_resource(efs_file_system)
