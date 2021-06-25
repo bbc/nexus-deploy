@@ -1,9 +1,14 @@
 import os
 
-from cosmic import service
+from cosmic import service, keys
 from infrastructure.stacks.service import template
 
 repos = {
+    "nexus": {
+        "url": "https://repository.api.bbci.co.uk/nexus-el8/revisions/head",
+        "type": "mirrorlist",
+        "gpg_key": keys.CD_JENKINS,
+    },
 }
 
 
