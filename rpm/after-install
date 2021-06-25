@@ -2,3 +2,4 @@
 
 systemctl enable nginx
 systemctl enable nexus
+systemctl enable crl
