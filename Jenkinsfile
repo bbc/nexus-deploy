@@ -11,6 +11,12 @@ node {
         script: 'curl http://169.254.169.254/latest/dynamic/instance-identity/document | jq -r .accountId',
         returnStdout: true
     ).trim()
+
+    // Blanking will cause cosmosServicePipeline not to notify for this project
+    env.SLACK_CHANNEL = ''
+    env.SLACK_BUILD_FAILURES = ''
+    env.SLACK_LIVE_RELEASES = ''
+    env.NOTIFY_MAILTO = ''
 }
 
 cosmosServicePipeline {
