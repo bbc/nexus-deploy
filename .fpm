@@ -1,1 +1,3 @@
 --depends nexus
+--depends java
+--depends nginx-crl

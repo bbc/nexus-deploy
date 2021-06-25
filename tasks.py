@@ -24,7 +24,7 @@ namespace = service(
         "MaxSize": "1",
         "DesiredCapacity": "1",
         "UpdateMinInService": "0",
-        "InstanceType": "t3a.micro",
+        "InstanceType": "t3a.small",
     },
     dns_subdomain=".".join(reversed(os.getenv("NAME").split("-"))),
     dns_domain="tools.bbc.co.uk.",
