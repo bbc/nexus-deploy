@@ -1,3 +1,4 @@
 #!/bin/sh
 
+systemctl enable nginx
 systemctl enable nexus
