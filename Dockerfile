@@ -10,7 +10,7 @@ RUN mkdir opt
 RUN cd opt && tar xzvf ../latest-unix.tar.gz
 
 RUN echo opt/nexus-* | cut -f 2 -d - | sed 's/.*/--version &/g' >.fpm
-RUN echo opt/nexus-* | cut -f 3 -d - | sed 's/.*/--iteration &/g' >>.fpm
+RUN echo opt/nexus-* | cut -f 3 -d - | sed "s/.*/--iteration &.$(date +%s)/g" >>.fpm
 
 RUN mv opt/nexus-* opt/nexus
 RUN fpm -s dir -t rpm --name nexus --depends nginx-crl --depends nfs-utils \
