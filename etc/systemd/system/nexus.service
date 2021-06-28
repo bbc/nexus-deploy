@@ -11,9 +11,10 @@ User=nexus
 Group=nexus
 DynamicUser=yes
 TimeoutSec=600
-LogsDirectory=/opt/sonatype-work/nexus3/log
-StateDirectory=/opt/sonatype-work/nexus3/orient
-CacheDirectory=/opt/sonatype-work/nexus3/tmp
+LogsDirectory=nexus
+StateDirectory=nexus
+CacheDirectory=nexus
+WorkingDirectory=/opt/nexus
 
 [Install]
 WantedBy=multi-user.target
