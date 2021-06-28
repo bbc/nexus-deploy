@@ -19,7 +19,7 @@ def template(project_name, component_name):
         description="Infrastructure for the {} service".format(component_name),
         project_name=project_name,
         component_name=component_name,
-        alarms=False,
+        alarm_actions=False,
     )
 
     auto_scaling_group = template.resources["ComponentAutoScalingGroup"]
