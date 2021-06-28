@@ -6,8 +6,8 @@
 -XX:LogFile=/var/log/nexus/jvm.log
 -XX:-OmitStackTraceInFastThrow
 -Djava.net.preferIPv4Stack=true
--Dkaraf.home=.
--Dkaraf.base=.
+-Dkaraf.home=/opt/nexus
+-Dkaraf.base=/opt/nexus
 -Dkaraf.etc=etc/karaf
 -Djava.util.logging.config.file=etc/karaf/java.util.logging.properties
 -Djava.util.prefs.userRoot=/var/lib/nexus
