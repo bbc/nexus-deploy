@@ -1,0 +1,14 @@
+FROM 536795411033.dkr.ecr.eu-west-1.amazonaws.com/cosmos:centos8
+# This tests the RPM is installable and allows for running locally via makefile
+# Build main Dockerfile and tag with nexus-deploy first
+COPY --from=nexus-deploy /target /target
+RUN repo yum-config cosmos-el8/revisions/stable >/etc/yum.repos.d/cosmos.repo
+RUN --mount=type=secret,id=client.crt,dst=/etc/pki/tls/certs/client.crt \
+    --mount=type=secret,id=client.key,dst=/etc/pki/tls/private/client.key \
+    yum localinstall -y /target/*.rpm
+
+RUN yum install -y java
+RUN java -version
+ADD nexus.vmoptions /opt/nexus/bin/nexus.vmoptions
+ADD etc/systemd/system/nexus.service /etc/systemd/system/nexus.service
+RUN systemctl enable nexus
